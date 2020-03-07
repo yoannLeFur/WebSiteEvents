@@ -1,0 +1,26 @@
+<div class="row m-0">
+    <h2 class="form-padding m-auto">Inscription</h2>
+</div>
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-12 col-md-6 form-group">{{ form_row(form.first_name) }}</div>
+    <div class="col-12 col-md-6 form-group">{{ form_row(form.last_name) }}</div>
+</div>
+<div class="row">
+    <div class="col-12 col-md-12 form-group">{{ form_row(form.username) }}</div>
+</div>
+<div class="row">
+    <div class="col-12 col-md-12 form-group">
+        {{ form_row(form.password.first) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-md-12 form-group">{{ form_row(form.password.second) }}</div>
+</div>
+{{ form_rest(form) }}
+<div class="row">
+    <div class="offset-2 col-8 offset-md-4 col-md-4">
+        <button class="col-12 btn-sm bg-purple text-white border-0">S'inscrire</button>
+    </div>
+</div>
+{{ form_end(form) }}

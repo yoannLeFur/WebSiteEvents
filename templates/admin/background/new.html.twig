@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title 'En-tête' %}
+
+{% block body %}
+    <div>
+        {{ include('layout/_header-nav-admin.html.twig') }}
+    </div>
+    {# Connexion #}
+    <div id="login" class="section-height">
+        <div class="offset-2 col-8 py-10">
+            <div class="row m-0">
+                <h2 class="form-padding m-auto">Créez votre nouvelle En-tête !</h2>
+            </div>
+            {{ include('admin/background/_form.html.twig', {form: form, button: 'Créer'}) }}
+        </div>
+    </div>
+{% endblock %}

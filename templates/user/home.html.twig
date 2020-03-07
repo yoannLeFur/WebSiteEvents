@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+{% block title 'Accueil' %}
+
+{% block body %}
+    <div>
+        {{ include('layout/_header-nav.html.twig') }}
+    </div>
+
+    {#         background#}
+    <div class="background-home">
+        <div>
+            {{ include('user/_background.html.twig') }}
+        </div>
+    </div>
+
+    {#         Mon agence#}
+    <div id="monAgence" class="section-height py-5">
+        <div class="offset-0 col-12 offset-md-1 col-md-10 offset-xl-2 col-xl-8">
+            {{ include('user/_agence.html.twig') }}
+        </div>
+    </div>
+
+    {#         Mes creations#}
+    <div id="mesCreations" class="section-height py-5">
+        <div class="offset-0 col-12 offset-md-1 col-md-10 offset-xl-2 col-xl-8">
+            {{ include('user/_creation.html.twig') }}
+        </div>
+    </div>
+
+    {#         Galerie#}
+    <div id="galerie" class="section-height py-5">
+    <div class="offset-0 col-12 offset-md-1 col-md-10 offset-xl-2 col-xl-8">
+            {{ include('user/_galerie.html.twig') }}
+        </div>
+    </div>
+
+    {#         Newsletter#}
+    <div id="newsletter" class="section-height py-newsletter">
+        <div class="offset-0 col-12 offset-md-1 col-md-10 offset-xl-3 col-xl-6">
+            {{ include('user/_newsletter.html.twig') }}
+        </div>
+    </div>
+
+    {#         Mes prestations#}
+    <div id="mesPrestations" class="section-height py-5">
+        <div class="offset-0 col-12 offset-md-1 col-md-10 offset-xl-2 col-xl-8">
+            {{ include('user/_prestations.html.twig') }}
+        </div>
+    </div>
+
+    {#         Me contacter#}
+    <div id="meContacter" class="section-height py-5">
+        <div class="offset-0 col-12 offset-md-1 col-md-10 offset-xl-2 col-xl-8">
+            {{ include('user/_contact.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
+
+

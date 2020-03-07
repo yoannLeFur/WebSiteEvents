@@ -1,0 +1,60 @@
+<nav id="nav" class="size-20 fixed-top navbar navbar-expand-lg navbar-light bg-purple p-0">
+    <button class="navbar-toggler " type="buton" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto col-12 text-center p-0">
+            <li class="nav-item active col-12 col-sm-12 col-md-6 col-lg-2 p-0">
+                <a class="nav-link" href="{{ path('home.index') }}">Accueil <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item col-12 col-sm-12 col-md-6 col-lg-2 p-0">
+                <a class="nav-link" href="">Mes créations</a>
+            </li>
+            <li class="nav-item dropdown col-12 col-sm-12 col-md-6 col-lg-2 p-0">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Les évenements
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Anniversaires</a>
+                    <a class="dropdown-item" href="#">Team building</a>
+                    <a class="dropdown-item" href="#">Séminaires</a>
+                    <a class="dropdown-item" href="#">Salons</a>
+                    <a class="dropdown-item" href="#">Soirées dansantes</a>
+                    <a class="dropdown-item" href="#">Evènements sportifs</a>
+                    <a class="dropdown-item" href="#">Tourisme d'affaires</a>
+                    <a class="dropdown-item" href="#">Voyages</a>
+                </div>
+            </li>
+            <li class="nav-item col-12 col-sm-12 col-md-6 col-lg-2  p-0">
+                <a class="nav-link" href="">Mes prestations</a>
+            </li>
+            <li class="nav-item col-12 col-sm-12 col-md-6 col-lg-2 p-0">
+                <a class="nav-link" href="{{ path('contact') }}">Me contacter</a>
+            </li>
+            <li class="nav-item nav-item-color col-12 col-sm-12 col-md-6 col-lg-2 p-0">
+                <a class="nav-link nav-link-color" href="{{ path('login') }}">Espace client</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% block javascripts %}
+    <script>
+        var nav = document.getElementById('nav');
+        var logo = document.getElementById('logo');
+        var x = window.matchMedia("(min-width: 991px)");
+
+        window.onscroll = function () {
+
+            if (x.matches) {
+                if (window.pageYOffset === 0) {
+                    nav.style.background = "#BF97E4";
+                    nav.style.fontSize = "15px";
+                    nav.style.padding = "10px 20px";
+                    nav.style.boxShadow = "0 12px 18px -6px rgba(0,0,0,0.2)";
+                }
+            }
+        }
+
+    </script>
+{% endblock %}

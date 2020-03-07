@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+{% block title 'Accueil' %}
+
+{% block body %}
+    <div>
+        {{ include('layout/_header-nav-admin.html.twig') }}
+    </div>
+
+    <div class="pt-5 pb-2">
+        <div class="row m-0 p-10">
+            {# background #}
+            <div class="offset-0 col-12 offset-md-0 col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">En-tête</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        {{ include('admin/background/_background.html.twig') }}
+                    </div>
+                </div>
+            </div>
+            {# Agence #}
+            <div class="offset-0 col-12 offset-md-0 col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Mon agence</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        {{ include('admin/agence/_agence.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-2">
+        <div class="row m-0 p-10">
+            {# Mes creations #}
+            <div class="offset-0 col-12 offset-md-0 col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Mes créations</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        {{ include('admin/creations/_creation.html.twig') }}
+                    </div>
+                </div>
+            </div>
+            {# Galerie #}
+            <div class="offset-0 col-12 offset-md-0 col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Ma Galerie</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        {{ include('user/_galerie.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-2">
+        <div class="row m-0 p-10">
+            {# Mes prestations #}
+            <div class="offset-0 col-12 offset-md-0 col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">En-tête</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        {{ include('user/_prestations.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

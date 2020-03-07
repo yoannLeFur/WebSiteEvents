@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title 'Inscription' %}
+
+{% block body %}
+    <div>
+        {{ include('layout/_header-nav-2.html.twig') }}
+    </div>
+    {# Inscription #}
+    <div id="register" class="section-height">
+        <div class="offset-2 col-8 py-10">
+            {{ include('security/_form-register.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,376 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f7f5ff;
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #BF97E4;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #BF97E4;
+    margin: 0;
+}
+
+h3 {
+    font-size: 20px;
+    color: #BF97E4;
+}
+
+/* header-nav */
+.bg-purple {
+    background-color: #BF97E4;
+}
+
+.nav-link {
+    color: #ffffff!important;
+}
+
+.nav-link-black {
+    color: #000!important;
+}
+
+.nav-link-color {
+    background-color: #D8C8F8;
+}
+
+.nav-link:hover,
+.nav-link-color:hover,
+.navbar-toggler:hover {
+   background-color: #AB87CD;
+}
+
+.dropdown-menu {
+    width: 100%;
+}
+
+/* home page */
+
+.background-home {
+    background: url("https://mdbootstrap.com/img/Photos/Slides/img%20(115).jpg") no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 60vh;
+}
+
+.opacity {
+    background-color: rgba(0,0,0, 0.3);
+    width: 100%;
+    height: 60vh;
+}
+
+.img-home {
+    margin: 10vh auto 2vh;
+}
+
+.section-height {
+    width: 100%;
+    padding: 40px 0;
+    margin: 0;
+}
+
+.section-height:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.section-height:nth-child(even) {
+    background-color: #f7f5ff;
+}
+
+#galerie,
+#monAgence,
+#mesPrestations {
+    box-shadow: 0 12px 18px -6px rgba(0,0,0,0.1);
+    margin: 0 0 20px;
+}
+
+#mesCreations,
+#newsletter,
+#meContacter {
+    box-shadow: 0px -13px 16px -5px rgba(0,0,0,0.1) inset;
+}
+
+.py-creation {
+    padding: 5vh 0 0;
+}
+.py-newsletter {
+     padding: 10vh 0;
+ }
+
+
+figure {
+    position: absolute;
+}
+
+figcaption {
+    position: relative;
+    bottom: 52px;
+    padding: 10px 0;
+    margin: 0 auto;
+    border-radius: 0 0 4px 4px;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.newsletter {
+    padding: 10vh 0;
+}
+
+/* connexion / inscription */
+
+.padding-security {
+    padding: 10vh 0 5vh;
+}
+
+.link-forgot-password {
+    color: #BF97E4;
+}
+.link-forgot-password:hover {
+    color: #AB87CD;
+}
+.bg-button-purple {
+     background-color: #BF97E4;
+ }
+.bg-button-purple:hover {
+    background-color: #AB87CD;
+}
+
+/* footer */
+.bg-footer-purple {
+    background-color: #D8C8F8;
+}
+
+.footer-copyright {
+    background-color: rgba(191, 151, 228, 0.8);
+}
+
+.footer-copyright a {
+    color: #ffffff;
+}
+
+.list-inline-item:not(:last-child) {
+     margin-right: 0!important;
+}
+
+.btn-admin {
+    width: 28px;
+    height: 20px;
+    font-size: 12px;
+    padding: 0
+}
+
+.btn {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 50%;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.fa-facebook,
+.fa-twitter,
+.fa-instagram,
+.fa-linkedin,
+.fa-envelope,
+.fa-home,
+.fa-phone,
+.fa-heart,
+.fa-gavel{
+    color: #ffffff;
+}
+
+.fa-youtube-play {
+    color: #F80000;
+}
+
+.btn-facebook {
+    background-color: #3B5998;
+}
+
+.btn-youtube {
+    background-color: #ffffff;
+}
+
+.btn-twiter {
+    background-color: #55ACEE;
+}
+
+.btn-instagram {
+    background-color: #DE1231;
+}
+
+.btn-linkedin {
+    background-color: #0082CA;
+}
+
+.btn-home,
+.btn-phone,
+.btn-mail,
+.btn-gavel {
+    background-color: #BF97E4;
+}
+
+
+/* admin */
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: none;
+    box-shadow: 0 12px 18px -6px rgba(0,0,0,0.1);
+    margin: 50px 10px;
+}
+
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #fff!important;
+    border-bottom: none!important;
+}
+
+
+/*@media screen and (min-width: 768px){*/
+/*    .img-agence {*/
+/*        width: 400px;*/
+/*        padding: 10px 20px 0 20px;*/
+/*    }*/
+/*}*/
+
+
+/*@media screen and (min-width: 1200px){*/
+
+/*    .img-creation {*/
+/*        width: 100%;*/
+/*        height: 279px;*/
+/*        margin: 16vh 0 3vh;*/
+/*    }*/
+
+/*    newsletter {*/
+/*        padding: 20vh 0 5vh;*/
+/*    }*/
+
+/*    .img-prestation {*/
+/*        margin: 16vh 0 3vh;*/
+/*    }*/
+/*}*/
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .div-agence img {
+        float: left;
+        width: 250px;
+        padding: 10px 20px 0 10px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .section-height {
+        min-height: 100vh;
+        padding: 80px 0;
+        margin: 0;
+    }
+
+    .form-padding {
+        padding: 10vh 0 5vh;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+
+
+@media (min-width: 1200px) {
+    h2 {
+        font-size: 30px;
+    }
+
+    .div-agence img {
+        float: left;
+        width: 50%;
+        padding: 10px 50px 10px 0;
+    }
+
+    .div-agence p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .py-creation {
+        padding: 20vh 0 0;
+    }
+
+    .py-newsletter {
+        padding: 20vh 0 0;
+    }
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1600px) {
+    h2 {
+        font-size: 40px;
+
+    }
+
+    .div-agence img {
+        float: left;
+        width: 50%;
+        padding: 10px 50px 10px 0;
+    }
+
+    .div-agence p {
+        font-size: 20px;
+        line-height: 2;
+    }
+
+    .py-creation {
+        padding: 20vh 0 0;
+    }
+
+    .py-newsletter {
+        padding: 20vh 0 0;
+    }
+}
+
+
+/* formulaire */
+
+form {
+    width: 100%;
+}
+
+.form-control {
+    padding: 0.2rem;
+    font-size: 16px;
+    border-radius: 5px;
+}
