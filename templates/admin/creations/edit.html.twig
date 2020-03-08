@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title 'Edition d\'une création' %}
+
+{% block body %}
+    <div>
+        {{ include('layout/_header-nav-admin.html.twig') }}
+    </div>
+    {# Connexion #}
+    <div id="login" class="section-height">
+        <div class="offset-2 col-8 py-10">
+            <div class="row m-0">
+                <h2 class="form-padding m-auto">Modifier votre description</h2>
+            </div>
+            {{ include('admin/creations/_form.html.twig', {form: form, button: 'Editer'}) }}
+        </div>
+    </div>
+{% endblock %}

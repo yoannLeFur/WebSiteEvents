@@ -1,0 +1,47 @@
+<div class="table-responsive">
+    <table class="table table-striped m-0">
+        <thead class="text-center">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">titre</th>
+            <th scope="col">Description</th>
+            <th scope="col" colspan="2">
+                {% if agences | length < 1 %}
+                    <div class="text-center btn-admin bg-button-purple">
+                        <a href="{{ path('admin.agence.new') }}" class=" text-white border-0" style="width:100%"><i
+                                    class="fa fa-plus pt-1" aria-hidden="true"></i></a>
+                    </div>
+                {% endif %}
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for agence in agences %}
+            <tr>
+                <th scope="row">{{ agence.id }}</th>
+                <td>{{ agence.title }}</td>
+                <td class="d-inline-block text-truncate"
+                    style="max-width: 400px;">{{ agence.description }}</td>
+                <td>
+                    <div class="d-flex flex-row">
+                        <div class="text-center btn-admin bg-button-purple">
+                            <a href="{{ path('admin.agence.show', {id: agence.id, slug: agence.slug}) }}" class="text-white border-0"
+                               style="width:100%"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="text-center btn-admin bg-button-purple mx-1 ">
+                            <a href="{{ path('admin.agence.edit', {id: agence.id}) }}" class="text-white border-0"
+                               style="width:100%"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="text-center btn-admin bg-button-purple ">
+                            <a href="{{ path('admin.agence.edit', {id: agence.id}) }}" class=" text-white border-0"
+                               style="width:100%"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title 'Connexion' %}
+
+{% block body %}
+    <div>
+        {{ include('layout/_header-nav-2.html.twig') }}
+    </div>
+    {# Connexion #}
+    <div id="login" class="section-height">
+        <div class="offset-0 col-12 py-10">
+            {{ include('security/_form-login.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

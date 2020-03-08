@@ -1,0 +1,18 @@
+<div class="row m-0">
+    <h2 class="text-purple section-size-h2 font-weight">Mon agence</h2>
+</div>
+{% for agence in agences %}
+    <div class="row d-flex justify-content-center div-agence m-0 py-4">
+        <div class="offset-0 col-12">
+            {% if agence.filename %}
+                <img class="img-fluid rounded pb-2"
+                     src="{{ vich_uploader_asset(agence, 'imageFile') | imagine_filter('medium') }}" alt="card-img-top">
+            {% else %}
+                <img class="img-fluid rounded pb-2" src="{{ 'images/no-image.png' | imagine_filter('medium') }}"
+                     alt="card-img-top">
+            {% endif %}
+            <h2>{{ agence.title }}</h2>
+            <p class="text-justify py-4">{{ agence.description }}</p>
+        </div>
+    </div>
+{% endfor %}

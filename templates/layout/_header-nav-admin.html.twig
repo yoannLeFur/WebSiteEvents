@@ -1,0 +1,78 @@
+<nav id="nav" class="size-20 fixed-top navbar navbar-expand-lg navbar-light bg-purple p-0">
+    <button class="navbar-toggler " type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <h3 class="text-white pt-2 px-3">Administration</h3>
+        <ul class="navbar-nav mr-auto col-12 text-center p-0">
+            <li class="nav-item dropdown col-12 col-sm-12 col-md-6 col-lg-2 p-0">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Page Home
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#monAgence">Mon agence <span class="sr-only">(current)</span></a>
+                    <a class="dropdown-item" href="#mesCreations">Mes créations</a>
+                    <a class="dropdown-item" href="#galerie">Mon agence <span class="sr-only">(current)</span></a>
+                    <a class="dropdown-item" href="#mesPrestations">Mes prestations</a>
+                </div>
+            </li>
+            <li class="nav-item col-12 col-sm-12 col-md-6 col-lg-2  p-0">
+                <a class="nav-link" href="#livredor">Mon livre d'Or</a>
+            </li>
+            <li class="nav-item col-12 col-sm-12 col-md-6 col-lg-2 p-0">
+                <a class="nav-link" href="#meContacter">Contact</a>
+            </li>
+            {% if not app.user %}
+                <li class="nav-item nav-item-color col-12 col-sm-12 col-md-6 col-lg-2 p-0">
+                    <a class="nav-link nav-link-color" href="{{ path('login') }}">Espace client</a>
+                </li>
+            {% endif %}
+            {% if app.user %}
+                <li class="nav-item dropdown col-12 col-sm-12 col-md-6 col-lg-2 p-0">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ app.user.fullname }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ path('home.index') }}">Quitter l'administration</a>
+                        {% if app.user.roles == ['ROLE_ADMIN'] %}
+                            <a class="dropdown-item" href="{{ path('admin.home') }}">Administration</a>
+                        {% endif %}
+                        <a class="dropdown-item" href="{{ path('logout') }}">Se déconnecter</a>
+                    </div>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+
+{#{% block javascripts %}#}
+{#    <script>#}
+{#        var nav = document.getElementById('nav');#}
+{#        var logo = document.getElementById('logo');#}
+{#        var x = window.matchMedia("(min-width: 991px)");#}
+
+{#        window.onscroll = function () {#}
+
+{#            if (x.matches) {#}
+{#                if (window.pageYOffset > 400) {#}
+{#                    nav.style.background = "#BF97E4";#}
+{#                    nav.style.fontSize = "15px";#}
+{#                    nav.style.padding = "10px 20px";#}
+{#                    nav.style.boxShadow = "0 12px 18px -6px rgba(0,0,0,0.2)";#}
+
+{#                } else {#}
+{#                    nav.style.background = "transparent";#}
+{#                    nav.style.fontSize = "20px";#}
+{#                    nav.style.padding = "20px";#}
+{#                    nav.style.boxShadow = "none";#}
+{#                }#}
+{#            }#}
+{#        }#}
+
+{#    </script>#}
+{#{% endblock %}#}

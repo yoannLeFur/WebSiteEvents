@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-md-4">{{ form_row(form.title) }}</div>
+    <div class="col-md-4">{{ form_row(form.logo) }}</div>
+    <div class="col-md-4">{{ form_row(form.screen) }}</div>
+</div>
+<div class="row">
+    <div class="col-md-12">{{ form_row(form.description,  { 'attr': {'rows': 7} }) }}</div>
+</div>
+{{ form_rest(form) }}
+<div class="row">
+    <div class="offset-2 col-8 offset-md-4 col-md-4 py-2">
+        <button class="col-12 btn-sm bg-button-purple text-white border-0">{{ button|default('Enregistrer') }}</button>
+    </div>
+</div>
+{{ form_end(form) }}
