@@ -24,21 +24,21 @@
                     style="max-width: 400px;">{{ creation.description }}</td>
                 <td>
                     <div class="d-flex flex-row">
-                        <div class="text-center btn-admin bg-button-purple">
-                            <a href="" class="text-white border-0"
-                               style="width:100%"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                        <div class="text-center">
+                            <a href="" class="btn btn-admin bg-button-purple text-white border-0"
+                            ><i class="fa fa-eye" aria-hidden="true"></i></a>
                         </div>
-                        <div class="text-center btn-admin bg-button-purple mx-1 ">
-                            <a href="{{ path('admin.creation.edit', {id: creation.id}) }}" class="text-white border-0"
-                               style="width:100%"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <div class="text-center mx-1">
+                            <a href="{{ path('admin.creation.edit', {id: creation.id}) }}"
+                               class="btn btn-admin bg-button-purple text-white border-0"
+                            ><i class="fa fa-pencil" aria-hidden="true"></i></a>
                         </div>
-                        <div class="text-center btn-admin bg-button-purple ">
-                            <a href="{{ path('admin.creation.edit', {id: creation.id}) }}" class=" text-white border-0"
-                               style="width:100%"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                        <div class="text-center">
+                            <a href="{{ path('admin.creation.edit', {id: creation.id}) }}"
+                               class="btn btn-admin bg-button-purple text-white border-0"
+                            ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                </td>
-                <td>
                 </td>
             </tr>
         {% endfor %}
