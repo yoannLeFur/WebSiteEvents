@@ -1,0 +1,53 @@
+<div class="table-responsive">
+    <table class="table table-striped m-0">
+        <thead class="text-center">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">nom</th>
+            <th scope="col">image</th>
+            <th scope="col" colspan="2">
+                {% if galeries | length < 8 %}
+                    <div class="text-center btn-admin bg-button-purple">
+                        <a href="{{ path('admin.galerie.new') }}" class=" text-white border-0" style="width:100%"><i
+                                    class="fa fa-plus pt-1" aria-hidden="true"></i></a>
+                    </div>
+                {% endif %}
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for galerie in galeries %}
+            <tr>
+                <th scope="row">{{ galerie.id }}</th>
+                <td>{{ galerie.filename }}</td>
+                <td class="d-inline-block text-truncate"
+                    style="max-width: 400px;"></td>
+                <td>
+                    <div class="d-flex flex-row">
+                        <div class="text-center">
+                            <a href="{{ path('admin.galerie.show', {id: galerie.id, slug: galerie.slug}) }}"
+                               class="btn btn-admin bg-button-purple text-white border-0"
+                            ><i class="fa fa-eye" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="text-center mx-1 ">
+                            <a href="{{ path('admin.galerie.edit', {id: galerie.id}) }}"
+                               class="btn btn-admin bg-button-purple text-white border-0"
+                            ><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="text-center ">
+                            <form method="post" action="{{ path('admin.galerie.delete', {id: galerie.id}) }}"
+                                  style="width:100%"
+                                  onsubmit="return confirm('Etes-vous sur de vouloir supprimer cette section?')">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ galerie.id) }}">
+                                <button class="btn btn-admin bg-button-purple text-white border-0 m-0 p-0"><i
+                                            class="fa fa-trash-o" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
