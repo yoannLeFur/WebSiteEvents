@@ -1,35 +1,47 @@
-<div class="opacity text-center text-white">
+<div class="text-center text-white">
     {% for background in backgrounds %}
-    <div class="row m-0">
-        <div class="offset-4 col-4 offset-md-4 col-md-4 offset-lg-5 col-lg-2 img-home">
-            {% if background.logo %}
-                <img class="img-fluid rounded pb-2"
-                     src="{{ vich_uploader_asset(background, 'logo') | imagine_filter('medium') }}" alt="card-img-top">
+        <figure class="col-12 p-0">
+            {% if background.screen %}
+                <img class=""
+                     src="{{ vich_uploader_asset(background, 'imageFile')}}" alt="card-img-top"  style="width: 100%; height: 61vh">
             {% else %}
-                <img class="img-fluid rounded pb-2" src="{{ 'images/no-image.png' | imagine_filter('medium') }}"
-                     alt="card-img-top">
+                <img class="img-fluid rounded pb-2" src="{{ 'images/no-image.png'}}"
+                     alt="card-img-top"  style="width: 100%; height: 61vh">
             {% endif %}
-        </div>
-    </div>
-    <div class="row m-0">
-        <div class="col-12">
-            <hr class="bg-purple mb-32mt-0 d-inline-block mx-auto" style="width: 300px; height: 3px">
-        </div>
-    </div>
-    <div class="row m-0">
-        <div class="col-12 description-home">
-            <p>{{ background.description }}</p>
-        </div>
-    </div>
-    <div class="row m-0">
-        <div class="offset-2 col-8">
-            <hr class="bg-purple mb-2 mt-0 d-inline-block mx-auto" style="width: 200px; height: 2px">
-        </div>
-    </div>
-    <div class="row m-0">
-        <div class="col-12 ">
-            <h1 class="size-45 font-weight">{{background.title}}</h1>
-        </div>
-    </div>
+            <figcaption>
+                <div class="row m-0">
+                    <div class="offset-4 col-4 offset-md-4 col-md-4 offset-lg-5 col-lg-2 img-home">
+                        {% if background.logo %}
+                            <img class="img-fluid rounded pb-2"
+                                 src="{{ vich_uploader_asset(background, 'logoFile') | imagine_filter('medium') }}" alt="card-img-top">
+                        {% else %}
+                            <img class="img-fluid rounded pb-2" src="{{ 'images/no-image.png' | imagine_filter('medium') }}"
+                                 alt="card-img-top">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="col-12">
+                        <hr class="bg-purple mb-32mt-0 d-inline-block mx-auto" style="width: 300px; height: 3px">
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="col-12 description-home">
+                        <p>{{ background.description }}</p>
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="offset-2 col-8">
+                        <hr class="bg-purple mb-2 mt-0 d-inline-block mx-auto" style="width: 200px; height: 2px">
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="col-12 ">
+                        <h1 class="size-45 font-weight">{{background.title}}</h1>
+                    </div>
+                </div>
+            </figcaption>
+        </figure>
+
     {% endfor %}
 </div>

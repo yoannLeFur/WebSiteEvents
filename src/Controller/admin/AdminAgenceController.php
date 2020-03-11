@@ -94,4 +94,21 @@ class AdminAgenceController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/admin/agence/{id}", name="admin.agence.delete", methods="DELETE")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function delete(Agence $agence, Request $request)
+    {
+        if ($this->isCsrfTokenValid('delete' . $agence->getId(), $request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($agence);
+            $em->flush();
+            $this->addFlash('success', 'La section Agence a bien été supprimer');
+            return $this->redirectToRoute('admin.home');
+        }
+
+    }
+
 }

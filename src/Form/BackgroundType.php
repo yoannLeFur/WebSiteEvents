@@ -14,10 +14,10 @@ class BackgroundType extends AbstractType
     {
         $builder->add('title')
                 ->add('description')
-                ->add('logo', FileType::class, [
+                ->add('logoFile', FileType::class, [
                     'required' => false
                 ])
-                ->add('screen', FileType::class, [
+                ->add('imageFile', FileType::class, [
                 'required' => false
     ]);
     }

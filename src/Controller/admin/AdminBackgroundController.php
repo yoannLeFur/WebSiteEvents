@@ -4,15 +4,13 @@
 namespace App\Controller\admin;
 
 
-use App\Entity\Agence;
 use App\Entity\Background;
-use App\Form\AgenceType;
 use App\Form\BackgroundType;
-use App\Repository\AgenceRepository;
 use App\Repository\BackgroundRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 class AdminBackgroundController extends AbstractController
 {
@@ -26,6 +24,23 @@ class AdminBackgroundController extends AbstractController
     public function __construct(BackgroundRepository $backgroundRepository)
     {
         $this->backgroundRepository = $backgroundRepository;
+    }
+
+    /**
+     * @Route(path="/admin/background/{slug}-{id}", name="admin.background.show", requirements={"slug": "[a-z0-9\-]*"})
+     * @return Response
+     */
+    public function show(Background $background, string $slug): Response
+    {
+        if($background->getSlug() !== $slug) {
+            return $this->redirectToRoute('admin.background.show', [
+                'id' => $background->getId(),
+                'slug' => $background->getSlug(),
+            ], 301);
+        }
+        return $this->render('admin/background/show.html.twig', [
+            'background' => $background,
+        ]);
     }
 
     /**
@@ -75,6 +90,24 @@ class AdminBackgroundController extends AbstractController
             'background' => $background,
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/admin/background/{id}", name="admin.background.delete", methods="DELETE")
+     * @param Background $background
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function delete(Background $background, Request $request)
+    {
+        if ($this->isCsrfTokenValid('delete' . $background->getId(), $request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($background);
+            $em->flush();
+            $this->addFlash('success', 'La section background a bien été supprimer');
+            return $this->redirectToRoute('admin.home');
+        }
+
     }
 
 }
