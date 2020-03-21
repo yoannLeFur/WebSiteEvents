@@ -6,7 +6,7 @@ namespace App\Controller\admin;
 use App\Repository\AgenceRepository;
 use App\Repository\BackgroundRepository;
 use App\Repository\CreationsRepository;
-use App\Repository\ImagesRepository;
+use App\Repository\GalerieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -28,18 +28,17 @@ class HomeController extends AbstractController
     private $backgroundRepository;
 
     /**
-     * @var ImagesRepository
+     * @var GalerieRepository
      */
-    private $imagesRepository;
+    private $galerieRepository;
 
 
-    public function __construct(AgenceRepository $agenceRepository, BackgroundRepository $backgroundRepository, CreationsRepository $creationsRepository, ImagesRepository $imagesRepository )
+    public function __construct(AgenceRepository $agenceRepository, BackgroundRepository $backgroundRepository, CreationsRepository $creationsRepository, GalerieRepository $galerieRepository )
     {
         $this->agenceRepository = $agenceRepository;
         $this->backgroundRepository = $backgroundRepository;
         $this->creationsRepository = $creationsRepository;
-        $this->imagesRepository = $imagesRepository;
-
+        $this->galerieRepository = $galerieRepository;
     }
 
 
@@ -50,7 +49,7 @@ class HomeController extends AbstractController
     public function index()
     {
         $agences = $this->agenceRepository->findAll();
-        $galeries = $this->imagesRepository->findAll();
+        $galeries = $this->galerieRepository->findAll();
         $backgrounds = $this->backgroundRepository->findAll();
         $creations = $this->creationsRepository->findAll();
         return $this->render('admin/home.html.twig', [

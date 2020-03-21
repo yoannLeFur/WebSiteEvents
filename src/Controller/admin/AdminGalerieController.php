@@ -1,13 +1,11 @@
 <?php
 
-
 namespace App\Controller\admin;
 
 
-use App\Entity\Images;
+use App\Entity\Galerie;
 use App\Form\GalerieType;
-use App\Form\ImagesType;
-use App\Repository\ImagesRepository;
+use App\Repository\GalerieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,21 +15,21 @@ class AdminGalerieController extends AbstractController
 {
 
     /**
-     * @var ImagesRepository
+     * @var GalerieRepository
      */
-    private $imagesRepository;
+    private $galerieRepository;
 
 
-    public function __construct(ImagesRepository $imagesRepository)
+    public function __construct(GalerieRepository $galerieRepository)
     {
-        $this->imagesRepository = $imagesRepository;
+        $this->galerieRepository = $galerieRepository;
     }
 
     /**
      * @Route(path="/admin/galerie/{slug}-{id}", name="admin.galerie.show", requirements={"slug": "[a-z0-9\-]*"})
      * @return Response
      */
-    public function show(Images $galerie, string $slug): Response
+    public function show(Galerie $galerie, string $slug): Response
     {
 
         if($galerie->getSlug() !== $slug) {
@@ -52,7 +50,7 @@ class AdminGalerieController extends AbstractController
      */
     public function new(Request $request)
     {
-        $galerie = new Images();
+        $galerie = new Galerie();
         $form = $this->createForm(GalerieType::class, $galerie);
         $form->handleRequest($request);
 
@@ -75,7 +73,7 @@ class AdminGalerieController extends AbstractController
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function edit(Images $galerie, Request $request)
+    public function edit(Galerie $galerie, Request $request)
     {
         $form = $this->createForm(GalerieType::class, $galerie);
         $form->handleRequest($request);
@@ -99,7 +97,7 @@ class AdminGalerieController extends AbstractController
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    public function delete(Images $galerie, Request $request)
+    public function delete(Galerie $galerie, Request $request)
     {
         if ($this->isCsrfTokenValid('delete' . $galerie->getId(), $request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
@@ -108,6 +106,5 @@ class AdminGalerieController extends AbstractController
             $this->addFlash('success', 'La section Galerie a bien été supprimer');
             return $this->redirectToRoute('admin.home');
         }
-
     }
 }

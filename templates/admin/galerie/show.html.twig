@@ -12,15 +12,14 @@
                 <h2 class="form-padding m-auto">Visualisation de l'image</h2>
             </div>
             <div class="row d-flex justify-content-center div-agence m-0 py-4">
-                <div class="offset-0 col-12">
-                    {% if galerie.filename %}
-                        <img class="img-fluid rounded pb-2"
-                             src="{{ vich_uploader_asset(galerie, 'imageFile') | imagine_filter('medium') }}" alt="card-img-top">
-                    {% else %}
-                        <img class="img-fluid rounded pb-2" src="{{ 'images/no-image.png' | imagine_filter('medium') }}"
-                             alt="card-img-top">
-                    {% endif %}
-                </div>
+                {% if galerie.filename %}
+                    <img class="img-fluid rounded pb-2 p-0"
+                         src="{{ vich_uploader_asset(galerie, 'imageFile') | imagine_filter('medium') }}"
+                         alt="card-img-top">
+                {% else %}
+                    <img class="img-fluid rounded pb-2" src="{{ 'images/no-image.png' | imagine_filter('medium') }}"
+                         alt="card-img-top">
+                {% endif %}
             </div>
         </div>
     </div>

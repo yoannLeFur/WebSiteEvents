@@ -1,0 +1,21 @@
+<div class="row m-0">
+    <h2>Mes créations</h2>
+</div>
+{%  for creation in creations %}
+<div class="row m-0 text-center py-creation">
+    <figure class="col-md-4">
+        <a href="{{ path('user.creation.show', {id: creation.id, slug: creation.slug}) }}">
+            {% if creation.filename %}
+                <img class="img-fluid rounded pb-2"
+                     src="{{ vich_uploader_asset(creation, 'imageFile') | imagine_filter('medium') }}" alt="card-img-top">
+            {% else %}
+                <img class="img-fluid rounded pb-2" src="{{ 'images/no-image.png' | imagine_filter('medium') }}"
+                     alt="card-img-top">
+            {% endif %}
+            <figcaption class="col-12">
+                <h3>{{ creation.name}}</h3>
+            </figcaption>
+        </a>
+    </figure>
+</div>
+{%  endfor %}

@@ -34,6 +34,11 @@ class Events
     private $creation_date;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_date;
+
+    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Partners", mappedBy="events")
      */
     private $partners;
@@ -219,4 +224,24 @@ class Events
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedDate()
+    {
+        return $this->updated_date;
+    }
+
+    /**
+     * @param mixed $updated_date
+     * @return Events
+     */
+    public function setUpdatedDate($updated_date)
+    {
+        $this->updated_date = $updated_date;
+        return $this;
+    }
+
+
 }

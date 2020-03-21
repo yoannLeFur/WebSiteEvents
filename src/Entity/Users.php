@@ -44,6 +44,11 @@ class Users implements UserInterface, \Serializable
     private $creation_date;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_date;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Roles", inversedBy="users")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -295,4 +300,24 @@ class Users implements UserInterface, \Serializable
     public function eraseCredentials()
     {
     }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedDate()
+    {
+        return $this->updated_date;
+    }
+
+    /**
+     * @param mixed $updated_date
+     * @return Users
+     */
+    public function setUpdatedDate($updated_date)
+    {
+        $this->updated_date = $updated_date;
+        return $this;
+    }
+
+
 }

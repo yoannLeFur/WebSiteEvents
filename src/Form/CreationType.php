@@ -17,18 +17,21 @@ class CreationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name')
-                ->add('descriptions')
-                ->add('events', EntityType::class, [
-                    'class' => Events::class,
-                    'required' => false,
-                    'choice_label' => 'name',
-                    'attr' => ['data-select' => 'false', 'data-placeholder' => 'Choisir un evènement']
-                ])
-                ->add('user', EntityType::class, [
-                    'class' => Users::class,
-                    'required' => false,
-                    'choice_label' => 'fullname',
-                    'attr' => ['data-select' => 'false', 'data-placeholder' => 'Associer un client à cette création']
+            ->add('imageFile', FileType::class, [
+                'required' => false
+            ])
+            ->add('descriptions')
+            ->add('events', EntityType::class, [
+                'class' => Events::class,
+                'required' => false,
+                'choice_label' => 'name',
+                'attr' => ['data-select' => 'false', 'data-placeholder' => 'Choisir un evènement']
+            ])
+            ->add('user', EntityType::class, [
+                'class' => Users::class,
+                'required' => false,
+                'choice_label' => 'fullname',
+                'attr' => ['data-select' => 'false', 'data-placeholder' => 'Associer un client à cette création']
             ]);
     }
 

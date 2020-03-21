@@ -8,14 +8,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class PrestationController extends AbstractController
+class LivreController extends AbstractController
 {
+
     /**
-     * @Route(name="user.prestation",path="/prestation")
+     * @Route(name="user.livre",path="/livre-d-Or")
      * @return Response
      */
     public function index(): Response
     {
-        return $this->render('user/prestation/prestation.html.twig');
+        return $this->render('user/livre/livre.html.twig');
     }
 }

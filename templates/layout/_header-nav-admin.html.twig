@@ -6,38 +6,35 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <h3 class="text-white pt-2 px-3">Administration</h3>
         <ul class="navbar-nav mr-auto col-12 text-center p-0">
-            <li class="nav-item dropdown col-12 col-sm-12 col-md-6 col-lg-2 p-0">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Page Home
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#monAgence">Mon agence <span class="sr-only">(current)</span></a>
-                    <a class="dropdown-item" href="#mesCreations">Mes créations</a>
-                    <a class="dropdown-item" href="#galerie">Mon agence <span class="sr-only">(current)</span></a>
-                    <a class="dropdown-item" href="#mesPrestations">Mes prestations</a>
-                </div>
+            <li class="nav-item col-12 col-sm-12 col-md-6 col-lg-2 p-0">
+                <h3 class="text-white pt-2 px-3">Administration</h3>
             </li>
             <li class="nav-item col-12 col-sm-12 col-md-6 col-lg-2  p-0">
-                <a class="nav-link" href="#livredor">Mon livre d'Or</a>
+                <a class="nav-link" href="#home">Page d'accueil</a>
+            </li>
+            <li class="nav-item col-12 col-sm-12 col-md-6 col-lg-2  p-0">
+                <a class="nav-link" href="#home">Mes photos</a>
+            </li>
+            <li class="nav-item col-12 col-sm-12 col-md-6 col-lg-2  p-0">
+                <a class="nav-link" href="#livredor">Gestion du livre d'Or</a>
             </li>
             <li class="nav-item col-12 col-sm-12 col-md-6 col-lg-2 p-0">
                 <a class="nav-link" href="#meContacter">Contact</a>
             </li>
             {% if not app.user %}
-                <li class="nav-item nav-item-color col-12 col-sm-12 col-md-6 col-lg-2 p-0">
+                <li class="nav-item nav-item-color offset-0 col-12 offset-sm-0 col-sm-12 offset-md-0 col-md-6 offset-lg-0 col-lg-2 p-0">
                     <a class="nav-link nav-link-color" href="{{ path('login') }}">Espace client</a>
                 </li>
             {% endif %}
             {% if app.user %}
-                <li class="nav-item dropdown col-12 col-sm-12 col-md-6 col-lg-2 p-0">
+                <li class="nav-item dropdown offset-0 col-12 offset-sm-0 col-sm-12 offset-md-0 col-md-6 offset-lg-0 col-lg-2 p-0">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ app.user.fullname }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ path('home.index') }}">Quitter l'administration</a>
+                        <a class="dropdown-item" href="{{ path('user.home.index') }}">Quitter l'administration</a>
                         {% if app.user.roles == ['ROLE_ADMIN'] %}
                             <a class="dropdown-item" href="{{ path('admin.home') }}">Administration</a>
                         {% endif %}

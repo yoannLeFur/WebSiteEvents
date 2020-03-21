@@ -1,9 +1,8 @@
 <?php
 
-
 namespace App\Form;
 
-use App\Entity\Images;
+use App\Entity\Galerie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,7 +22,7 @@ class GalerieType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => Images::class,
+            'data_class' => Galerie::class,
             'translation_domain' => 'forms'
         ));
     }

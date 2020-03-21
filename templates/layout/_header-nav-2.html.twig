@@ -6,31 +6,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto col-12 text-center p-0">
             <li class="nav-item active col-12 col-sm-12 col-md-6 col-lg-2 p-0">
-                <a class="nav-link" href="{{ path('home.index') }}">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ path('user.home.index') }}">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item col-12 col-sm-12 col-md-6 col-lg-2 p-0">
-                <a class="nav-link" href="">Mes créations</a>
-            </li>
-            <li class="nav-item dropdown col-12 col-sm-12 col-md-6 col-lg-2 p-0">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Les évenements
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Anniversaires</a>
-                    <a class="dropdown-item" href="#">Team building</a>
-                    <a class="dropdown-item" href="#">Séminaires</a>
-                    <a class="dropdown-item" href="#">Salons</a>
-                    <a class="dropdown-item" href="#">Soirées dansantes</a>
-                    <a class="dropdown-item" href="#">Evènements sportifs</a>
-                    <a class="dropdown-item" href="#">Tourisme d'affaires</a>
-                    <a class="dropdown-item" href="#">Voyages</a>
-                </div>
+                <a class="nav-link" href="{{ path('user.creation') }}">Mes créations</a>
             </li>
             <li class="nav-item col-12 col-sm-12 col-md-6 col-lg-2  p-0">
-                <a class="nav-link" href="">Mes prestations</a>
+                <a class="nav-link" href="{{ path('user.galerie') }}">Ma galerie</a>
+            </li>
+            <li class="nav-item col-12 col-sm-12 col-md-6 col-lg-2  p-0">
+                <a class="nav-link" href="{{ path('user.prestation') }}">Mes prestations</a>
             </li>
             <li class="nav-item col-12 col-sm-12 col-md-6 col-lg-2 p-0">
-                <a class="nav-link" href="{{ path('contact') }}">Me contacter</a>
+                <a class="nav-link" href="{{ path('user.contact') }}">Me contacter</a>
             </li>
             <li class="nav-item nav-item-color col-12 col-sm-12 col-md-6 col-lg-2 p-0">
                 <a class="nav-link nav-link-color" href="{{ path('login') }}">Espace client</a>

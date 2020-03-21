@@ -1,8 +1,11 @@
 {{ form_start(form) }}
 <div class="row">
-    <div class="col-md-4">{{ form_row(form.name) }}</div>
-    <div class="col-md-4">{{ form_row(form.events) }}</div>
-    <div class="col-md-4">{{ form_row(form.user) }}</div>
+    <div class="col-md-6">{{ form_row(form.name) }}</div>
+    <div class="col-md-6">{{ form_row(form.imageFile) }}</div>
+</div>
+<div class="row">
+    <div class="col-md-6">{{ form_row(form.events) }}</div>
+    <div class="col-md-6">{{ form_row(form.user) }}</div>
 </div>
 <div class="row">
     <div class="col-md-12">{{ form_row(form.descriptions,  { 'attr': {'rows': 7} }) }}</div>

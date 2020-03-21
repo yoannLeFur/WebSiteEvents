@@ -10,10 +10,10 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ImagesRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\GalerieRepository")
  * @Vich\Uploadable
  */
-class Images
+class Galerie
 {
     /**
      * @ORM\Id()
@@ -31,7 +31,7 @@ class Images
     /**
      * @var File|null
      * @Assert\Image(maxSize="10M", mimeTypes={"image/jpg", "image/jpeg", "image/png"})
-     * @Vich\UploadableField(mapping="image", fileNameProperty="filename")
+     * @Vich\UploadableField(mapping="galerie_image", fileNameProperty="filename")
      */
     private $imageFile;
 
@@ -44,16 +44,6 @@ class Images
      * @ORM\Column(type="datetime")
      */
     private $updated_date;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Creations", inversedBy="images")
-     */
-    private $creation;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Events", inversedBy="images")
-     */
-    private $event;
 
     public function __construct()
     {
@@ -70,42 +60,6 @@ class Images
         return (new Slugify())->slugify($this->filename);
     }
 
-    public function getCreationDate(): ?\DateTimeInterface
-    {
-        return $this->creation_date;
-    }
-
-    public function setCreationDate(\DateTimeInterface $creation_date): self
-    {
-        $this->creation_date = $creation_date;
-
-        return $this;
-    }
-
-    public function getCreation(): ?Creations
-    {
-        return $this->creation;
-    }
-
-    public function setCreation(?Creations $creation): self
-    {
-        $this->creation = $creation;
-
-        return $this;
-    }
-
-    public function getEvent(): ?Events
-    {
-        return $this->event;
-    }
-
-    public function setEvent(?Events $event): self
-    {
-        $this->event = $event;
-
-        return $this;
-    }
-
     /**
      * @return string|null
      */
@@ -116,9 +70,9 @@ class Images
 
     /**
      * @param string|null $filename
-     * @return Images
+     * @return Galerie
      */
-    public function setFilename(?string $filename): Images
+    public function setFilename(?string $filename): Galerie
     {
         $this->filename = $filename;
         return $this;
@@ -134,15 +88,27 @@ class Images
 
     /**
      * @param File|null $imageFile
-     * @return Images
+     * @return Galerie
      * @throws \Exception
      */
-    public function setImageFile(?File $imageFile): Images
+    public function setImageFile(?File $imageFile): Galerie
     {
         $this->imageFile = $imageFile;
         if ($this->imageFile instanceof UploadedFile) {
             $this->updated_date = new \DateTime('now');
         }
+        return $this;
+    }
+
+    public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creation_date;
+    }
+
+    public function setCreationDate(\DateTimeInterface $creation_date): self
+    {
+        $this->creation_date = $creation_date;
+
         return $this;
     }
 
@@ -156,12 +122,13 @@ class Images
 
     /**
      * @param mixed $updated_date
-     * @return Images
+     * @return Galerie
      */
     public function setUpdatedDate($updated_date)
     {
         $this->updated_date = $updated_date;
         return $this;
     }
+
 
 }

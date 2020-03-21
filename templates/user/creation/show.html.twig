@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title 'Ma créations' %}
+
+{% block body %}
+    <div>
+        {{ include('layout/_header-nav-2.html.twig') }}
+    </div>
+    {# Creation #}
+    <div id="login" class="section-height">
+        <div class="offset-2 col-8 py-10">
+            <div class="row d-flex justify-content-center div-agence m-0 py-4">
+                <div class="offset-0 col-12">
+                    {% if creation.filename %}
+                        <img class="img-fluid rounded pb-2"
+                             src="{{ vich_uploader_asset(creation, 'imageFile') | imagine_filter('medium') }}" alt="card-img-top">
+                    {% else %}
+                        <img class="img-fluid rounded pb-2" src="{{ 'images/no-image.png' | imagine_filter('medium') }}"
+                             alt="card-img-top">
+                    {% endif %}
+                    <h2>{{ creation.name }}</h2>
+                    <p class="text-justify py-4">{{ creation.descriptions }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

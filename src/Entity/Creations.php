@@ -2,12 +2,18 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CreationsRepository")
+ * @Vich\Uploadable
  */
 class Creations
 {
@@ -34,13 +40,18 @@ class Creations
     private $creation_date;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_date;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="creations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Partners", mappedBy="creation")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Partners", mappedBy="creations")
      */
     private $partners;
 
@@ -50,14 +61,28 @@ class Creations
     private $events;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Images", mappedBy="creation")
+     * @ORM\OneToMany(targetEntity="App\Entity\Images", mappedBy="creations")
      */
     private $images;
+
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", length=255)
+     */
+    private $filename;
+
+    /**
+     * @var File|null
+     * @Assert\Image(maxSize="10M", mimeTypes={"image/jpg", "image/jpeg", "image/png"})
+     * @Vich\UploadableField(mapping="creation_image", fileNameProperty="filename")
+     */
+    private $imageFile;
 
     public function __construct()
     {
         $this->partners = new ArrayCollection();
         $this->images = new ArrayCollection();
+        $this->setCreationDate(new \DateTime());
     }
 
     public function getId(): ?int
@@ -76,6 +101,12 @@ class Creations
 
         return $this;
     }
+
+    public function getSlug(): string
+    {
+        return (new Slugify())->slugify($this->name);
+    }
+
 
     public function getDescriptions(): ?string
     {
@@ -183,4 +214,56 @@ class Creations
 
         return $this;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getFilename(): ?string
+    {
+        return $this->filename;
+    }
+
+    /**
+     * @param string|null $filename
+     * @return Creations
+     */
+    public function setFilename(?string $filename): Creations
+    {
+        $this->filename = $filename;
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|null $imageFile
+     * @return Creations
+     * @throws \Exception
+     */
+    public function setImageFile(?File $imageFile): Creations
+    {
+        $this->imageFile = $imageFile;
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->updated_date = new \DateTime('now');
+        }
+        return $this;
+    }
+
+    public function getUpdatedDate()
+    {
+        return $this->updated_date;
+    }
+
+    public function setUpdatedDate($updated_date)
+    {
+        $this->updated_date = $updated_date;
+        return $this;
+    }
+
 }
