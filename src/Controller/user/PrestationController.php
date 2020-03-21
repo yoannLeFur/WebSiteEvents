@@ -11,11 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class PrestationController extends AbstractController
 {
     /**
-     * @Route(name="prestation",path="/prestation")
+     * @Route(name="user.prestation",path="/prestation")
      * @return Response
      */
     public function index(): Response
     {
-        return $this->render('user/prestation.html.twig');
+        return $this->render('user/prestation/prestation.html.twig');
     }
 }

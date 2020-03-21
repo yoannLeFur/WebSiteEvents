@@ -67,7 +67,7 @@ class Background
     /**
      * @ORM\Column(type="datetime")
      */
-    private $updated_at;
+    private $updated_date;
 
     public function __construct()
     {
@@ -171,7 +171,7 @@ class Background
     {
         $this->imageFile = $imageFile;
         if ($this->imageFile instanceof UploadedFile) {
-            $this->updated_at = new \DateTime('now');
+            $this->updated_date = new \DateTime('now');
         }
         return $this;
     }
@@ -188,14 +188,14 @@ class Background
     }
 
 
-    public function getUpdatedAt()
+    public function getUpdatedDate()
     {
-        return $this->updated_at;
+        return $this->updated_date;
     }
 
-    public function setUpdatedAt($updated_at)
+    public function setUpdatedDate($updated_date)
     {
-        $this->updated_at = $updated_at;
+        $this->updated_date = $updated_date;
         return $this;
     }
 

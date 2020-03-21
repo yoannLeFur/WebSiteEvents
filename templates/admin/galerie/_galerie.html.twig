@@ -1,0 +1,52 @@
+<div class="table-responsive text-center">
+    <table class="table table-striped m-0">
+        <tbody>
+        <tr>
+            <td>
+                {% if galeries | length < 8 %}
+                    <div class="text-center btn-admin bg-button-purple">
+                        <a href="{{ path('admin.galerie.new') }}" class=" text-white border-0" style="width:100%"><i
+                                    class="fa fa-plus pt-1" aria-hidden="true"></i></a>
+                    </div>
+                {% endif %}
+            </td>
+            {% for galerie in galeries %}
+                <td>
+                    <div class="d-inline-block text-truncate">
+                        {% if galerie.filename %}
+                            <img class="img-fluid rounded pb-2"
+                                 src="{{ vich_uploader_asset(galerie, 'imageFile') | imagine_filter('medium') }}"
+                                 alt="card-img-top">
+                        {% else %}
+                            <img class="img-fluid rounded pb-2"
+                                 src="{{ 'images/no-image.png' | imagine_filter('medium') }}"
+                                 alt="card-img-top">
+                        {% endif %}
+                    </div>
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="text-center">
+                            <a href="{{ path('admin.galerie.show', {id: galerie.id, slug: galerie.slug}) }}"
+                               class="btn btn-admin bg-button-purple text-white border-0"
+                            ><i class="fa fa-eye" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="text-center mx-1 ">
+                            <a href="{{ path('admin.galerie.edit', {id: galerie.id}) }}"
+                               class="btn btn-admin bg-button-purple text-white border-0"
+                            ><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="text-center ">
+                            <form method="post" action="{{ path('admin.galerie.delete', {id: galerie.id}) }}"
+                                  onsubmit="return confirm('Etes-vous sur de vouloir supprimer cette section?')">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ galerie.id) }}">
+                                <button class="btn btn-admin bg-button-purple text-white border-0 m-0 p-0"><i
+                                            class="fa fa-trash-o" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </td>
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+</div>

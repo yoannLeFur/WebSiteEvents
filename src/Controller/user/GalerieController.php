@@ -11,11 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class GalerieController extends AbstractController
 {
     /**
-     * @Route(name="galerie",path="/galerie")
+     * @Route(name="user.galerie",path="/galerie")
      * @return Response
      */
     public function index(): Response
     {
-        return $this->render('user/galerie.html.twig');
+        return $this->render('user/galerie/galerie.html.twig');
     }
 }

@@ -9,49 +9,56 @@
     {#         background#}
     <div class="background-home">
         <div>
-            {{ include('user/_background.html.twig') }}
+            {{ include('user/background/_background.html.twig') }}
         </div>
     </div>
 
     {#         Mon agence#}
     <div id="monAgence" class="section-height py-5">
         <div class="offset-0 col-12 offset-md-1 col-md-10 offset-xl-2 col-xl-8">
-            {{ include('user/_agence.html.twig') }}
+            {{ include('user/agence/_agence.html.twig') }}
         </div>
     </div>
 
     {#         Mes creations#}
     <div id="mesCreations" class="section-height py-5">
         <div class="offset-0 col-12 offset-md-1 col-md-10 offset-xl-2 col-xl-8">
-            {{ include('user/_creation.html.twig') }}
+            {{ include('user/creation/_creation.html.twig') }}
         </div>
     </div>
 
     {#         Galerie#}
     <div id="galerie" class="section-height py-5">
     <div class="offset-0 col-12 offset-md-1 col-md-10 offset-xl-2 col-xl-8">
-            {{ include('user/_galerie.html.twig') }}
+            {{ include('user/galerie/_galerie.html.twig') }}
+        </div>
+    </div>
+
+    {#         livre d'or#}
+    <div id="livre" class="section-height py-5">
+        <div class="offset-0 col-12 offset-md-1 col-md-10 offset-xl-2 col-xl-8">
+            {{ include('user/livre/_livre.html.twig') }}
         </div>
     </div>
 
     {#         Newsletter#}
     <div id="newsletter" class="section-height py-newsletter">
         <div class="offset-0 col-12 offset-md-1 col-md-10 offset-xl-3 col-xl-6">
-            {{ include('user/_newsletter.html.twig') }}
+            {{ include('user/newsletter/_newsletter.html.twig') }}
         </div>
     </div>
 
     {#         Mes prestations#}
     <div id="mesPrestations" class="section-height py-5">
         <div class="offset-0 col-12 offset-md-1 col-md-10 offset-xl-2 col-xl-8">
-            {{ include('user/_prestations.html.twig') }}
+            {{ include('user/prestation/_prestations.html.twig') }}
         </div>
     </div>
 
     {#         Me contacter#}
     <div id="meContacter" class="section-height py-5">
         <div class="offset-0 col-12 offset-md-1 col-md-10 offset-xl-2 col-xl-8">
-            {{ include('user/_contact.html.twig') }}
+            {{ include('user/contact/_contact.html.twig') }}
         </div>
     </div>
 {% endblock %}
